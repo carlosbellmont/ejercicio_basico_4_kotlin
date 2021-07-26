@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun main() {
     managingIntegerList()
     managingStringArrays()
     managingMixList()
@@ -8,8 +8,20 @@ fun main(args: Array<String>) {
     createListDynamically()
     classicFor(mutableListOf(1,2,3,4,5,6))
     classicForCountingPairs(mutableListOf(1,2,3,4,5,6))
-    forCountingImpairs(mutableListOf(1,2,3,4,5,6))
+    forCountingPairs(mutableListOf(1,2,3,4,5,6))
     classicForInRanges(mutableListOf(1,2,3,4,5,6))
+}
+
+fun managingIntegerList(){
+    println("managingIntegerList")
+    val list = mutableListOf(1,2,3)
+    list.add(5)
+    println(list[3])
+    list.add(1,10)
+    list[0] = 100
+    // list = mutableListOf(3) No compila ya que list (el puntero) es de tipo val.
+
+    println(list.toString())
 }
 
 fun managingStringArrays() {
@@ -19,16 +31,6 @@ fun managingStringArrays() {
     // array[2] = "1" Compila pero da un error ArrayIndexOutOfBoundsException.
     println(array.contentToString())
     // println(array.toString()) Compila pero escribe el puntero en vez del contenido del array
-}
-
-
-fun managingIntegerList(){
-    println("managingIntegerList")
-    val list = mutableListOf(1,2,3)
-    list.add(4)
-    // list = mutableListOf(3) No compila ya que list (el puntero) es de tipo val.
-
-    println(list.toString())
 }
 
 fun managingMixList(){
@@ -91,8 +93,8 @@ fun classicForCountingPairs(list: Collection<Int>) {
     println("La suma de los pares es $totalContent")
 }
 
-fun forCountingImpairs(list: Collection<Int>) {
-    println("forCountingImpairs")
+fun forCountingPairs(list: Collection<Int>) {
+    println("forCountingPairs")
 
     var totalContent = 0
     for (element in list.indices step 2){
